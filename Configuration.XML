@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Enviroment>
+    <Url>http://localhost:3000/</Url>
+    <Browser>Chrome</Browser>
+    <IsHeadless>false</IsHeadless>
+    <TimeOut>10</TimeOut>
+
+    <UserName>admin</UserName>
+    <Password>admin</Password>
+</Enviroment>
