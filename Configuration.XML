@@ -2,7 +2,7 @@
 <Enviroment>
     <Url>http://localhost:3000/</Url>
     <Browser>Chrome</Browser>
-    <IsHeadless>false</IsHeadless>
+    <IsHeadless>true</IsHeadless>
     <TimeOut>10</TimeOut>
 
     <UserName>admin</UserName>

@@ -2,18 +2,15 @@ package web.flows;
 
 import utilitiess.Config;
 import web.WebActions;
+import web.navigations.NavigationMenu;
 import web.pages.Pages;
 
-public class LoginFlows {
+public class LoginFlows extends AbstractFlows {
 
-    private final Pages pages;
-    private final WebActions webActions;
 
-    public LoginFlows(Pages pages, WebActions webActions) {
-        this.pages = pages;
-        this.webActions = webActions;
+    protected LoginFlows(Pages pages, WebActions webActions, NavigationMenu navigationMenu) {
+        super(pages, webActions,navigationMenu);
     }
-
 
     public void Login(String user, String password) {
         webActions.updateText(pages.LOGIN_PAGE.userName(), user);

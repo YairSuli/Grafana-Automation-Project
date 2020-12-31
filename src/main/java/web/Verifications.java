@@ -4,11 +4,12 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
 
 public class Verifications {
     private final WebDriverWait wait;
@@ -44,9 +45,35 @@ public class Verifications {
 //        Assert.assertFalse(diff.hasDiff(), "Images are not the same");
     }
 
+    public void elementDisplayed(WebElement elem) {
+        assertTrue(elem.isDisplayed());
+    }
+
+    public void elementExist(WebElement elem) {
+        assertNotNull(elem, "Element is not exist in the dom.");
+    }
+
+    public void existInList(List list, Object expected) {
+        Object actual = null;
+        for (Object o : list) {
+            if (o.equals(expected))
+                actual = o;
+        }
+        assertEquals(actual, expected, expected + " not fund in the list. ");
+    }
+
+    public void notExistInList(List list, Object expected) {
+        Object actual = null;
+        for (Object o : list) {
+            if (o.equals(expected))
+                actual = o;
+        }
+        assertEquals(actual, null, expected + " fund in the list. ");
+    }
+
     @Step("Verify Text with Text")
     public void text(String actualText, String expectedText) {
-        Assert.assertEquals(actualText, expectedText);
+        assertEquals(actualText, expectedText);
     }
 
 

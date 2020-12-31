@@ -1,11 +1,15 @@
 package web;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class WebActions {
     private final WebDriverWait wait;
@@ -25,6 +29,7 @@ public class WebActions {
     @Step("Send Text to Text-Field")
     public void updateText(WebElement elem, String value) {
         wait.until(ExpectedConditions.visibilityOf(elem));
+        elem.clear();
         elem.sendKeys(value);
     }
 
@@ -33,6 +38,26 @@ public class WebActions {
         wait.until(ExpectedConditions.visibilityOf(elem));
         Select myValue = new Select(elem);
         myValue.selectByVisibleText(value);
+    }
+
+    public List<WebElement> numberOfElementsToBeMoreThan(List<WebElement> elementList, int number) {
+        ExpectedCondition<Boolean> condition = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return elementList.size() > number;
+            }
+
+            @Override
+            public String toString() {
+                return "list is empty";
+            }
+        };
+        wait.until(condition);
+        return elementList;
+    }
+
+    public List<WebElement> getNotEmptyList(List<WebElement> elementList) {
+        return numberOfElementsToBeMoreThan(elementList, 0);
     }
 
     @Step("Mouse Hover to Element")

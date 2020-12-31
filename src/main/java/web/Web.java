@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import web.flows.Flows;
 import web.navigations.NavigationMenu;
 import web.pages.Pages;
@@ -22,7 +23,7 @@ public class Web {
 
     private WebDriverWait wait;
 
-    private Verifications verifications;
+    public Verifications verifications;
 
     private Actions actions;
     public WebActions webActions;
@@ -37,14 +38,20 @@ public class Web {
         initActions();
         initWebActions();
         initPages();
+        initNavigationMenu();
         initFlows();
         initVerifications();
-        initNavigationMenu();
+        flows.LOGIN_FLOWS.Login();
     }
 
     @AfterClass
     public void closeSection() {
         driver.quit();
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
+        webActions.click(pages.LEFT_MENU_PAGE.btnHome());
     }
 
     private void initDriver() {
@@ -70,7 +77,7 @@ public class Web {
     }
 
     private void initFlows() {
-        flows = new Flows(pages, webActions);
+        flows = new Flows(pages, webActions, navigationMenu);
     }
 
     private void initVerifications() {
