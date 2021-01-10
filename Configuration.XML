@@ -5,6 +5,11 @@
     <IsHeadless>true</IsHeadless>
     <TimeOut>10</TimeOut>
 
+    <!-- Credentials -->
     <UserName>admin</UserName>
     <Password>admin</Password>
+
+    <!-- API -->
+    <BaseUrl>http://localhost:3000/api/</BaseUrl>
+    <ContentType>application/json</ContentType>
 </Enviroment>
