@@ -14,7 +14,7 @@ public class Api {
 
     @BeforeClass
     public void BeforeClass() {
-        RestAssured.baseURI = "http://localhost:3000/api";
+        RestAssured.baseURI = Config.get("BaseUrl");
         httpRequest = RestAssured.given().auth().preemptive().basic(Config.get("UserName"), Config.get("Password"));
         httpRequest.header("Content-Type", Config.get("ContentType"));
         initApiActions();
