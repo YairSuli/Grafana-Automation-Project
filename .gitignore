@@ -4,3 +4,5 @@ build
 *.log
 allure-results/
 src/**/TMP
+*.iml
+target/
