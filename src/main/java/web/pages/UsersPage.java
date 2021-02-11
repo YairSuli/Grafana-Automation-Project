@@ -1,5 +1,6 @@
 package web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,10 +18,12 @@ public class UsersPage extends AbstractPageObject {
         super(driver);
     }
 
+    @Step("get New User button.")
     public WebElement btnNewUser() {
         return btnNewUser;
     }
 
+    @Step("get Users list.")
     public List<WebElement> tbUsers() {
         return tbUsers;
     }

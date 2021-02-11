@@ -40,7 +40,7 @@ public class WebActions {
         myValue.selectByVisibleText(value);
     }
 
-    public List<WebElement> numberOfElementsToBeMoreThan(List<WebElement> elementList, int number) {
+    public List<WebElement> numberOfElementsToBeMoreThan(final List<WebElement> elementList, final int number) {
         ExpectedCondition<Boolean> condition = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
@@ -56,6 +56,7 @@ public class WebActions {
         return elementList;
     }
 
+    @Step("Get not empty list.")
     public List<WebElement> getNotEmptyList(List<WebElement> elementList) {
         return numberOfElementsToBeMoreThan(elementList, 0);
     }

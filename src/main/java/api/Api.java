@@ -4,8 +4,10 @@ import api.flows.Flows;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import utilitiess.Config;
 
+@Listeners(utilitiess.Listeners.class)
 public class Api {
 
     protected RequestSpecification httpRequest;

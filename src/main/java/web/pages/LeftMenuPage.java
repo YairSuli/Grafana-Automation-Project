@@ -1,5 +1,6 @@
 package web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,10 +22,12 @@ public class LeftMenuPage extends AbstractPageObject {
         super(driver);
     }
 
+    @Step("get Home button.")
     public WebElement btnHome() {
         return btnHome;
     }
 
+    @Step("get Server admin button.")
     public WebElement btnServerAdmin() {
         return btnServerAdmin;
     }

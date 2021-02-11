@@ -1,5 +1,6 @@
 package web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,34 +31,42 @@ public class EditUserPage extends AbstractPageObject {
         super(driver);
     }
 
+    @Step("get Name text field.")
     public WebElement txtName() {
         return txtName;
     }
 
+    @Step("get Email text field.")
     public WebElement txtEmail() {
         return txtEmail;
     }
 
+    @Step("get UserName text field.")
     public WebElement txtUserName() {
         return txtUserName;
     }
 
+    @Step("get Update User button.")
     public WebElement btnUpdateUser() {
         return btnUpdateUser;
     }
 
+    @Step("get Password text field.")
     public WebElement txtPassword() {
         return txtPassword;
     }
 
+    @Step("get Update Password button.")
     public WebElement btnUpdatePassword() {
         return btnUpdatePassword;
     }
 
+    @Step("get Delete button.")
     public WebElement btnDeleteUser() {
         return btnDeleteUser;
     }
 
+    @Step("get Confirm Delete button.")
     public WebElement btnConfirmDelete() {
         return btnConfirmDelete;
     }

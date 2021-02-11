@@ -3,9 +3,11 @@ package web;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import web.flows.Flows;
 import web.navigations.NavigationMenu;
 import web.pages.Pages;
@@ -14,6 +16,7 @@ import static utilitiess.Constants.IS_HEADLESS;
 import static utilitiess.Constants.TIME_OUT;
 import static utilitiess.Constants.URL;
 
+@Listeners(utilitiess.Listeners.class)
 public class Web {
     //todo: make driver as privet
     public WebDriver driver;
@@ -32,8 +35,8 @@ public class Web {
 
 
     @BeforeClass
-    public void startSection() {
-        initDriver();
+    public void startSection(ITestContext context) {
+        initDriver(context);
         initWait();
         initActions();
         initWebActions();
@@ -54,10 +57,11 @@ public class Web {
         webActions.click(pages.LEFT_MENU_PAGE.btnHome());
     }
 
-    private void initDriver() {
+    private void initDriver(ITestContext context) {
         driver = Browsers.getNewDriver(IS_HEADLESS);
         driver.manage().window().maximize();
         driver.navigate().to(URL);
+        context.setAttribute("WebDriver", driver);
     }
 
     private void initWait() {

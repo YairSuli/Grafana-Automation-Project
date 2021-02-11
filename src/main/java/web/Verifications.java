@@ -45,14 +45,17 @@ public class Verifications {
 //        Assert.assertFalse(diff.hasDiff(), "Images are not the same");
     }
 
+    @Step("Verify Element id displayed.")
     public void elementDisplayed(WebElement elem) {
         assertTrue(elem.isDisplayed());
     }
 
+    @Step("Verify Element exist (not null).")
     public void elementExist(WebElement elem) {
         assertNotNull(elem, "Element is not exist in the dom.");
     }
 
+    @Step("Verify Object exist in list.")
     public void existInList(List list, Object expected) {
         Object actual = null;
         for (Object o : list) {
@@ -62,6 +65,7 @@ public class Verifications {
         assertEquals(actual, expected, expected + " not fund in the list. ");
     }
 
+    @Step("Verify Object not exist in list.")
     public void notExistInList(List list, Object expected) {
         Object actual = null;
         for (Object o : list) {

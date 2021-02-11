@@ -1,5 +1,6 @@
 package web.pages.menu;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,7 @@ public class ServerAdminPage extends AbstractPageObject {
         super(driver);
     }
 
+    @Step("get Users button.")
     public WebElement btnUsers() {
         return btnUsers;
     }
